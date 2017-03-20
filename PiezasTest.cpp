@@ -4,7 +4,8 @@
 
 #include <gtest/gtest.h>
 #include "Piezas.h"
- 
+#include <iostream>
+using namespace std; 
 class PiezasTest : public ::testing::Test
 {
 	protected:
@@ -138,5 +139,268 @@ TEST(PiezasTest, fullColumndropPiece)
  }
 
  ASSERT_TRUE(check6);
+
+}
+
+TEST(PiezasTest, gameNotOver)
+
+{
+
+  Piezas p;
+
+  ASSERT_TRUE(p.gameState()==Invalid);
+
+}
+
+TEST(PiezasTest, XwinsVertical)
+
+{
+
+  Piezas p;
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(0);
+  p.dropPiece(1);
+  p.dropPiece(0);
+  p.dropPiece(2);
+  p.dropPiece(1);
+  p.dropPiece(2);
+  p.dropPiece(3);
+  p.dropPiece(3);
+
+ /* for(int i = 0; i < BOARD_ROWS; i++)
+
+	{
+
+		for(int j = 0; j < BOARD_COLS; j++)
+
+		{
+
+			if(p.pieceAt(i,j) == X)
+
+				cout << "X" << " ";
+
+			if(p.pieceAt(i,j) == O)
+
+				cout << "O" << " ";
+
+			if(p.pieceAt(i,j) == Blank)
+
+				cout << "B" << " ";
+
+			if(p.pieceAt(i,j) == Invalid)
+
+				cout << "I" << " ";
+
+		}
+
+		cout << endl;
+
+	}
+
+	cout << "here";*/
+
+  ASSERT_TRUE(p.gameState()==X);
+
+} 
+
+
+
+TEST(PiezasTest,0WinsVertical)
+
+{
+
+  Piezas pi;
+
+  pi.reset(); 
+
+  pi.dropPiece(0);
+
+  pi.dropPiece(1);
+
+  pi.dropPiece(2);
+
+  pi.dropPiece(3);
+
+  pi.dropPiece(0);
+
+  pi.dropPiece(0);
+
+  pi.dropPiece(2);
+
+  pi.dropPiece(1);
+
+  pi.dropPiece(3);
+
+  pi.dropPiece(1);
+
+  pi.dropPiece(3);
+
+  pi.dropPiece(2);
+
+  
+/*for(int i = 0; i < BOARD_ROWS; i++)
+
+	{
+
+		for(int j = 0; j < BOARD_COLS; j++)
+
+		{
+
+			if(pi.pieceAt(i,j) == X)
+
+				cout << "X" << " ";
+
+			if(pi.pieceAt(i,j) == O)
+
+				cout << "O" << " ";
+
+			if(pi.pieceAt(i,j) == Blank)
+
+				cout << "B" << " ";
+
+			if(pi.pieceAt(i,j) == Invalid)
+
+				cout << "I" << " ";
+
+		}
+
+		cout << endl;
+
+	}
+
+	cout << "here2";*/
+  ASSERT_TRUE(pi.gameState()==O);
+
+}
+
+TEST(PiezasTest, gameTie)
+
+{
+
+  Piezas p;
+
+  p.dropPiece(0);
+
+  p.dropPiece(0);
+
+  p.dropPiece(0);
+
+  p.dropPiece(1);
+
+  p.dropPiece(1);
+
+  p.dropPiece(1);
+
+  p.dropPiece(2);
+
+  p.dropPiece(2);
+
+  p.dropPiece(2);
+
+  p.dropPiece(3);
+
+  p.dropPiece(3);
+
+  p.dropPiece(3);
+
+/*for(int i = 0; i < BOARD_ROWS; i++)
+
+	{
+
+		for(int j = 0; j < BOARD_COLS; j++)
+
+		{
+
+			if(p.pieceAt(i,j) == X)
+
+				cout << "X" << " ";
+
+			if(p.pieceAt(i,j) == O)
+
+				cout << "O" << " ";
+
+			if(p.pieceAt(i,j) == Blank)
+
+				cout << "B" << " ";
+
+			if(p.pieceAt(i,j) == Invalid)
+
+				cout << "I" << " ";
+
+		}
+
+		cout << endl;
+
+	}
+
+	cout << "here3";*/
+  ASSERT_TRUE(p.gameState()==Blank);
+
+}
+TEST(PiezasTest, Xhorizontal)
+
+{
+
+  Piezas p;
+
+  p.dropPiece(0);
+
+  p.dropPiece(0);
+
+  p.dropPiece(1);
+
+  p.dropPiece(1);
+
+  p.dropPiece(2);
+
+  p.dropPiece(2);
+
+  p.dropPiece(3);
+
+  p.dropPiece(0);
+
+  p.dropPiece(3);
+
+  p.dropPiece(0);
+
+  p.dropPiece(1);
+
+  p.dropPiece(2);
+  p.dropPiece(3);
+/*for(int i = 0; i < BOARD_ROWS; i++)
+
+	{
+
+		for(int j = 0; j < BOARD_COLS; j++)
+
+		{
+
+			if(p.pieceAt(i,j) == X)
+
+				cout << "X" << " ";
+
+			if(p.pieceAt(i,j) == O)
+
+				cout << "O" << " ";
+
+			if(p.pieceAt(i,j) == Blank)
+
+				cout << "B" << " ";
+
+			if(p.pieceAt(i,j) == Invalid)
+
+				cout << "I" << " ";
+
+		}
+
+		cout << endl;
+
+	}
+
+	cout << "herehhho";*/
+  ASSERT_TRUE(p.gameState()==X);
 
 }
